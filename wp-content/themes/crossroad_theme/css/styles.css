@@ -1,0 +1,773 @@
+@font-face {
+	font-family: 'museo_sans_100';
+	src: url('../fonts/museo_sans_100.eot');
+	src: url('../fonts/museo_sans_100.eot?#iefix') format('embedded-opentype'), url('../fonts/museo_sans_100.ttf') format('truetype'), url('../fonts/museo_sans_100.woff') format('woff'), url('../fonts/museo_sans_100.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'museo_sans_500';
+	src: url('../fonts/museo_sans_500.eot');
+	src: url('../fonts/museo_sans_500.eot?#iefix') format('embedded-opentype'), url('../fonts/museo_sans_500.ttf') format('truetype'), url('../fonts/museo_sans_500.woff') format('woff'), url('../fonts/museo_sans_500.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'museo_sans_300';
+	src: url('../fonts/MuseoSansCyrl_0.otf');
+	src: url('../fonts/MuseoSansCyrl_0.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*parts of fontawesome.css */
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontAwesome/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../fonts/fontAwesome/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../fonts/fontAwesome/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../fonts/fontawesome/fontAwesome-webfont.woff?v=4.3.0') format('woff'), url('../fonts/fontAwesome/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../fonts/fontawesome/fontAwesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.fa-bed:before {
+  content: "\f236";
+}
+
+.fa-suitcase:before {
+  content: "\f0f2";
+}
+
+.fa-map:before {
+  content: "\f279";
+}
+
+.fa-plane:before {
+  content: "\f072";
+}
+
+.fa-car:before {
+  content: "\f1b9";
+}
+
+.fa-bus:before {
+  content: "\f207";
+}
+
+.fa-facebook:before {
+  content: "\f09a";
+}
+
+* {
+	margin:0
+}
+
+body,html {
+	height:100%;
+	font-family: 'museo_sans_100';
+	font-size:14px
+}
+
+.wrapper {
+	min-height:100%;
+	height:auto!important;
+	height:100%;
+	margin:0 auto -300px
+}
+
+.push,footer {
+	height:300px
+}
+
+
+.sticky {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	border-top: 0;	
+	box-shadow: 0px 1px 15px #000;
+} 
+
+.languages {
+	float:right;
+	padding-top:15px
+}
+
+.languages a {
+	display:inline-block;
+	float:left;
+	padding-right:5px
+}
+
+.header-wrapper {
+	height:130px;	
+	background:#fff;
+    
+}
+
+.logo {
+	width:12%;
+	float:left
+}
+
+.navigation-menu {	
+	float:right;
+	padding-top:50px
+}
+
+.navigation-menu .navbar-default {
+	background-color:transparent;
+	border-color:transparent
+}
+
+.navigation-menu .navbar {
+	border:none
+}
+
+.main-navigation li {
+    margin-right: 25px;
+    font-size: 20px;
+    text-transform: capitalize
+}
+
+li.menu-item-has-children:after {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid #1d8bcb;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    top: 16px;
+    right: -12px;
+}
+
+.main-navigation ul ul.sub-menu {
+	box-shadow:none	
+}
+
+.menu-item-has-children:hover, ul.sub-menu {
+	background:#81b0df;	
+	color:#fff;
+}
+
+.menu-item-has-children:hover li>a , ul.sub-menu li>a {
+	color:#fff;
+}
+
+ul.sub-menu li>a, ul.sub-menu li>a:hover {
+	border-bottom:none
+}
+
+.main-navigation li>a {
+	color:#1d8bcb
+}
+
+.main-navigation li>a {
+	border-bottom:1px solid #FFFFFF
+}
+
+.main-navigation li>a:hover, .main-navigation li>a:active {
+	border-bottom:1px solid #1d8bcb
+}
+
+.main-navigation li>a:visited {
+	color:#1d8bcb
+}
+
+.carousel-inner>.item>img {
+	width:100%
+}
+
+.carousel-inner {
+	height:800px;
+	overflow:hidden
+}
+
+.layer {
+	font-size: 22px;    
+    width: 15%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+	text-transform:capitalize
+}
+
+.layer p {
+	margin:0;
+	text-align:left;
+	padding-left:15px;;
+	padding-top:10px;
+	color:#fff;
+	font-weight:bold;
+	text-align:center
+}
+
+
+.layer .blue, .layer .white {	
+    color: #fff;
+	background-color:transparent;
+	font-weight:bold
+} 
+
+.overlay {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);    
+    width: 20%;
+    top: 4%;
+    left: -2%;
+    position: absolute;
+    height: 100px;
+    background-color: #ccc;
+    opacity: 0.5;
+}
+
+
+.about {
+	padding-top:50px;
+	padding-bottom:50px;
+	background:#1d8bcb;
+	color:white;
+	text-align:center
+}
+
+.about-container h1, .services-container h1, .profile-container h1, .services-page-container h1, .header-tours-container h1, .excursions-title-wrapper h1, .fly h1, .single-container h1, .privacy-container h1 {
+	text-transform:capitalize;
+	padding-bottom:15px;
+	width:15%;
+	margin:0 auto;
+	border-bottom:1px solid #fff;
+	margin-bottom:20px;
+	font-size:30px;
+	text-align:center;
+	margin-bottom:40px
+}
+
+.services {
+	background:#ecf3f9
+}
+
+.services h1, .services-page-container h1, .tours h1, .fly h1, .single-container h1, .privacy-container h1 {
+	color:#1d8bcb;
+	border-bottom-color:#1d8bcb;
+}
+
+.single-container h1 {
+	width:35%
+}
+
+.fly p {
+	text-align:center;
+	color:#1d8bcb;
+	font-size:18px
+}
+
+.about-container .par {
+	padding-top:20px;
+	font-size:16px
+}
+
+.services-container {
+	text-align:center;
+	padding-top:50px;
+	padding-bottom:50px
+}
+
+.services-container h1 {
+	color:#1d8bcb;
+	border-bottom-color:#1d8bcb;
+}
+
+.services-container h1, .services-container h2 {
+	text-transform:capitalize;
+}
+
+ .services-container h2 {
+	 font-size:26px
+ }
+
+.btn-round-icon {
+    font-size: 55px;
+    border: 0 none;
+    border-radius: 50%;
+    width: 105px;
+    height: 105px;
+    margin-bottom: 0.5em;
+}
+
+.icon .fa {
+	color:white;
+	font-size:45px
+}
+
+.blue {
+	background:#1d8bcb;
+}
+
+.purple {
+	background:#a54cb7
+}
+
+.yellow {
+	background:#f0b642
+}
+
+.red {
+	background:red
+}
+
+.green {
+	background:green
+}
+
+.white-bg {
+	background:#fff;
+}
+
+.white-bg .fa {
+	color:#1d8bcb
+}
+
+.services-container .row {
+	padding-bottom:20px
+}
+
+.parallax .overlay {
+	width:100%;
+	left:8%;
+	height:120px
+}
+
+.profile .parallax, .accomondation .parallax, .tranfers .parallax, .contact .parallax, .services-page .parallax, .tours .parallax, .excursions .parallax, .fly .parallax {
+	width:100%;
+	height:650px;	
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:50% 50%;
+	position:relative;
+}
+
+.fly .parallax {
+	background-image:url(../img/75111030.jpg)
+}
+
+.profile .parallax {
+	background-image:url(../img/1004572_595281200512433_1090847763_n.jpg);
+	background-position: 50% 85%;
+}
+
+.tranfers .parallax {
+	background-image:url(../img/Louis%20Majesty.jpg)
+}
+
+.contact .parallax {
+	background-image:url(../img/1337203657_greece_main.jpg);
+	background-position:50% 90%
+}
+
+.services-page .parallax {
+	background-image:url(../img/greek-islands.jpg);
+	background-position:50% 25%
+}
+
+.accomondation .parallax {
+	background-image:url(../img/VP.33259.jpg);
+	background-position:50% 95%
+}
+
+.tours .parallax {
+	background-image:url(../img/lindos00.jpg);
+}
+
+.excursions .parallax {
+	background-image:url(../img/IMG_0306.JPG);
+	background-position:50% 40%
+}
+
+.profile-container {
+	text-align:center;
+	padding-top:50px;
+	font-size:18px;
+	padding-bottom:50px
+}
+
+.profile-container h1, .profile-container {
+	border-bottom: 1px solid #81b0df;
+	color:#81b0df
+}
+
+.parallax .layer {
+	position:absolute;
+	bottom:9%;
+	left:42%
+}
+
+.accomondation, .fly {
+    background: #ecf3f9;
+}
+
+.fly-container {
+	padding-top:50px;
+	padding-bottom:50px
+}
+
+
+.accomondation button {
+	text-shadow:none;
+	box-shadow:none
+}
+
+.accomondation .search-link .btn {
+	 border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: #1d8bcb;
+    color: #81b0df;
+    cursor: pointer;
+    padding: 25px 25px;
+    display: inline-block;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 0;
+    z-index: 0;
+    border: 3px solid #75d0e0;
+    width: 20%; 
+}
+
+.accomondation .btn:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s; }
+
+.main-btn {
+  overflow: hidden; 
+}
+
+.main-btn:after {
+    width: 85%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg); 
+}
+
+.main-btn:hover, .main-btn:active {
+    color: #1d8bcb;
+    border: 3px solid #81b0df; 
+}
+
+.main-btn:hover:after, .main-btn:active:after {
+      height: 230%;
+      opacity: 1; 
+}
+
+.main-btn:active:after {
+    height: 400%;
+    opacity: 1; 
+}
+
+.main-btn:focus {
+    color: #75d0e0; 
+}
+
+/*contact page styles */
+
+.contact, .single, .privacy, .page-template-privacy .push, .profile, .tranfers, .login, .push, .page-template-general {
+   background: #ecf3f9;
+}
+
+.contact-row {
+	padding-top:30px
+}
+
+.wpcf7-form {
+	padding-top:20px
+}
+
+
+.wpcf7-form p {
+	font-size:18px
+}
+
+.wpcf7-form input[type="text"], .wpcf7-form input[type="email"], .wpcf7-form textarea {
+	width:80%;
+	border-radius:0;
+	border:none
+}
+
+.wpcf7-form input[type="submit"], .login input[type="submit"] {
+	background-color:#a043b3;
+	border:none;
+	border-radius:0;
+	box-shadow:none;
+	color:#fff;
+	text-shadow:none;
+	width: 15%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.login input[type="submit"] {
+	background:#1d8bcb;
+	width:15%
+}
+
+.contact-row h3 {
+	text-transform:capitalize
+}
+
+.contact-row a, .adress {
+	color:#1d8bcb;
+	font-size:16px
+}
+
+.contact-row a:hover {
+	text-decoration:none
+}
+
+.contact-row a:visited {
+	color:#1d8bcb
+}
+
+
+/*services */
+.services-page-container {
+	text-align:center;
+	padding-top:30px
+}
+
+.login .link-text {
+	display:none
+}
+
+.login {
+	padding-top:30px
+}
+
+.login p, .register>ul>li>a, .login p>a{
+	font-size: 22px;
+    color: #1d8bcb;
+}
+
+.header-tours-container, .header-excursions-container {
+	text-align:center
+}
+
+.cat .post-categories {
+	margin:0;
+	padding:0;
+}
+
+.cat .post-categories li {
+	list-style:none
+}
+
+.tours-title-wrapper, .excursions-title-wrapper {
+	background:#1d8bcb;
+	color:#fff;
+	padding-top:50px;
+	padding-bottom:50px
+}
+
+.page-template-tours .page-header, .page-template-excursions .page-header {
+	border-bottom:none;
+	margin:0;
+	padding:0
+}
+
+.tours-wrapper, .excursions-wrapper {
+   background: #ecf3f9;
+   padding-top:50px;
+   padding-bottom:50px
+}
+
+
+.tour-post {
+	padding-bottom:30px;
+	background:#fff;
+	margin-bottom:20px;
+	margin-right:15px	
+}
+
+.tour-post .image img {
+	width:100%;
+	height:250px;
+	overflow:hidden
+}
+
+.tour-post .title a, .tour-post .cat a {
+	color:#1d8bcb;
+	text-transform:capitalize;
+	padding-left:15px;
+	font-size:20px
+}
+
+.tour-post .cat a {
+	color:#000;
+	text-transform:uppercase;
+	font-size:18px
+}
+
+.tour-post .title a:hover, .tour-post .cat a:hover {
+	text-decoration:none
+}
+
+.tours-info, .excursions-info, .profile-container p{
+	font-size:18px
+}
+
+.excursions-wrapper button {
+	text-shadow:none;
+	box-shadow:none;
+	border-color:#1d8bcb;
+	border-radius:10px;
+	background-color:transparent;
+	color:#1d8bcb;
+	text-shadow:none;
+	font-size:18px;
+	text-transform:capitalize;
+	margin-right:6px
+}
+
+.button-group {
+	margin-bottom:30px;
+	padding-left:15px;
+}
+
+.cat {
+	padding-left:15px;
+	text-transform:capitalize
+}
+
+.single-container {
+	padding-top:50px
+}
+
+.inner-container p, .inner-container a, .inner-container li>a {
+	font-size:18px;
+	color:#000000
+}
+
+.inner-container a:visited {
+	color:#000;
+}
+
+.inner-container a:hover {
+	text-decoration:none
+}
+
+.privacy {
+	padding-top:50px;
+	padding-bottom:50px
+}
+
+footer .site-info {
+	background:#1d8bcb;
+	padding-top:25px;	
+}
+
+footer .logo {
+	width:25%;
+	float:none;
+	margin-top:10px
+}
+
+.site-info, .site-info li>a, .site-info a {
+	color:#fff;
+	text-transform:capitalize
+}
+
+.site-info li>a:hover, .site-info a:hover {
+	text-decoration:none
+}
+
+.site-info li>a:visited, .site-info a:visited {
+	color:#fff;
+}
+
+.pages-link {
+	list-style:none;
+	margin:0;
+	padding:0;	
+}
+
+.links {
+	float:left;
+	padding-right:20px
+}
+	
+.site-info h4 {
+	font-family: 'museo_sans_500';
+}
+
+.logos {
+	float:left;
+	display:inline-block;	
+	width:15%;
+	text-align:center
+}
+
+.copyright {
+	text-align:center;
+    background: #ddd;
+    color: black;
+	padding-top:10px;
+	padding-bottom:10px
+}
+
+.logos-wrapper {
+	padding-bottom:15px;
+	padding-top:15px
+}
+
+footer .address {
+	padding-top:15px
+}
+
+footer .fa {
+	font-size:22px
+}
+
+.logos img {
+	max-width:90%
+}
+
+@media (min-width:768px ) {
+	.carousel-caption {
+		top:20%;
+		right:-10%
+	}
+}
+	
