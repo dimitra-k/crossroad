@@ -34,7 +34,8 @@ wp_reset_query();
 						
 					?>
 					<a href="http://localhost/crossroad/excursions/"class="icon btn btn-round-icon white-bg"><i class="fa fa-bus"></i></a>
-					<p class="excursions-info">Greece is a country based on diversity, no matter what your clients preferences are, we will provide you with the best shouted activity for them. Give your clients the opportunity to experience something unique, and enrich their journey with all kind of excursions throughout Greece.   </p>
+					<?php $en = get_option('ex-en'); ?>
+					<p class="excursions-info"> <?php echo $en; ?>  </p>
 					</div>
 				</div>
 			</header><!-- .page-header -->

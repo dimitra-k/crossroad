@@ -32,7 +32,8 @@ wp_reset_query();
 						
 					?>
 					<a href="http://localhost/crossroad/excursions/"class="icon btn btn-round-icon white-bg"><i class="fa fa-suitcase"></i></a>
-					<p class="tours-info">We provide all the necessary arrangements for the perfect organization of tours and packages, both for individuals and groups. No matter how common or special your request might be, contact us to create a package according to your client’s needs, or choose one of those listed below. </p>
+					<?php $en = get_option('en'); ?>
+					<p class="tours-info"> <?php echo $en; ?></p>
 					</div>
 				</div>
 			</header><!-- .page-header -->

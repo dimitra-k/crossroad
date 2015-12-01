@@ -155,6 +155,158 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+function add_media_upload_scripts() {
+    if ( is_admin() ) {
+         return;
+       }
+    wp_enqueue_media();
+}
+add_action('wp_enqueue_scripts', 'add_media_upload_scripts');
+
+// Global theme settings so we can insert the slider text 
+function crossroad_theme_options_add_page()
+{
+	$theme_page = add_theme_page(
+		__('Crossroad Options'), // Name of page
+		__('Crossroad Options'), // Label in menu
+		'edit_theme_options', // Capability required
+		'theme_options', // Menu slug, used to uniquely identify the page
+		'my_theme_options' // Function that renders the options page
+	);
+}
+
+add_action('admin_menu', 'crossroad_theme_options_add_page');
+
+function my_theme_options() {
+
+	if (!current_user_can('manage_options'))  {
+		wp_die( __('You do not have sufficient permissions to access this page.') );
+	}
+	?>
+
+	<div class="wrap"><div class="icon32" id="icon-themes"><br></div><h2>Crossroad Text Options</h2>
+	<div class="box visible">
+		<h3>Tour's english info</h3>
+		<p>Please insert Tour's english info</p>		
+		<p>
+			<form method="POST" action="">
+			 <input type="text" id="en" value="<?php echo get_option('en'); ?>" name="en" size="100"/>
+			 <p><input type="submit" value="Update" id="update_first_text" class="button-primary" name="update_en"></p>
+			</form>
+		</p>
+	</div>	
+	<div class="box visible">
+		<h3>Tour's french info</h3>
+		<p>Please insert Tour's french info</p>
+		<p>
+			<form method="POST" action="">
+			 <input type="text" id="fr" value="<?php echo get_option('fr'); ?>" name="fr" size="100"/>
+			 <p><input type="submit" value="Update" id="update_option" class="button-primary" name="update_option"></p>
+			</form>
+		</p>
+	</div>	
+	<div class="box visible">
+		<h3>Tour's dutch info</h3>
+		<p>Please insert Tour's dutch info</p>
+		<p>
+			<form method="POST" action="">
+			 <input type="text" id="du" value="<?php echo get_option('du'); ?>" name="du" size="100"/>
+			 <p><input type="submit" value="Update" id="update_option" class="button-primary" name="update_option"></p>
+			</form>
+		</p>
+	</div>	
+	
+	<div class="box visible">
+		<h3>Excursion's english info</h3>
+		<p>Please insert Excursion's english info</p>		
+		<p>
+			<form method="POST" action="">
+			 <input type="text" id="ex-en" value="<?php echo get_option('ex-en'); ?>" name="ex-en" size="100"/>
+			 <p><input type="submit" value="Update" id="update_first_text" class="button-primary" name="update_ex-en"></p>
+			</form>
+		</p>
+	</div>	
+	<div class="box visible">
+		<h3>Excursion's french info</h3>
+		<p>Please insert Excursion's french info</p>
+		<p>
+			<form method="POST" action="">
+			 <input type="text" id="ex-fr" value="<?php echo get_option('ex-fr'); ?>" name="ex-fr" size="100"/>
+			 <p><input type="submit" value="Update" id="update_option" class="button-primary" name="update_option"></p>
+			</form>
+		</p>
+	</div>	
+	<div class="box visible">
+		<h3>Excursion's dutch info</h3>
+		<p>Please insert Excursion's dutch info</p>
+		<p>
+			<form method="POST" action="">
+			 <input type="text" id="ex-du" value="<?php echo get_option('ex-du'); ?>" name="ex-du" size="100"/>
+			 <p><input type="submit" value="Update" id="update_option" class="button-primary" name="update_option"></p>
+			</form>
+		</p>
+	</div>	
+	</div>
+<?php
+}
+
+function add_update_vals()
+{
+	$deprecated = ' ';
+	$autoload   = 'no';
+	if (!empty($_POST['du'])) {
+		if (get_option('du') != $_POST['du']) {
+			update_option('du', $_POST['du']);
+		} else {
+			add_option('du', $_POST['du'], $deprecated, $autoload);
+		}
+	}
+	if (!empty($_POST['fr'])) {
+		if (get_option('fr') != $_POST['fr']) {
+			update_option('fr', $_POST['fr']);
+		} else {
+			add_option('fr', $_POST['fr'], $deprecated, $autoload);
+		}
+	}
+	
+
+	if (!empty($_POST['en'])) {
+		if (get_option('en') != $_POST['en']) {
+			update_option('en', $_POST['en']);
+		} else {
+			add_option('en', $_POST['en'], $deprecated, $autoload);
+		}
+	}	
+	
+	if (!empty($_POST['ex-du'])) {
+		if (get_option('ex-du') != $_POST['ex-du']) {
+			update_option('ex-du', $_POST['ex-du']);
+		} else {
+			add_option('ex-du', $_POST['ex-du'], $deprecated, $autoload);
+		}
+	}
+	if (!empty($_POST['ex-fr'])) {
+		if (get_option('ex-fr') != $_POST['ex-fr']) {
+			update_option('ex-fr', $_POST['ex-fr']);
+		} else {
+			add_option('ex-fr', $_POST['ex-fr'], $deprecated, $autoload);
+		}
+	}
+	
+
+	if (!empty($_POST['ex-en'])) {
+		if (get_option('ex-en') != $_POST['ex-en']) {
+			update_option('ex-en', $_POST['ex-en']);
+		} else {
+			add_option('ex-en', $_POST['ex-en'], $deprecated, $autoload);
+		}
+	}	
+}
+
+add_action('init', 'add_update_vals');
+
+
+
 function custom_post_type() {
 	// Register tours post type
 	$labels = array(
@@ -287,6 +439,50 @@ function custom_post_type() {
 		'rewrite'			  => $rewrite,
 	);
 	register_post_type( 'excursion', $args );
+	
+		$labels = array(
+		'name'                => _x( 'Offers', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Offer', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Offers', 'text_domain' ),
+		'parent_item_colon'   => __( 'Parent Offers', 'text_domain' ),
+		'all_items'           => __( 'All Offers Posts', 'text_domain' ),
+		'view_item'           => __( 'View Offers Posts', 'text_domain' ),
+		'add_new_item'        => __( 'Add New Offer Post', 'text_domain' ),
+		'add_new'             => __( 'Add New', 'text_domain' ),
+		'edit_item'           => __( 'Edit ', 'text_domain' ),
+		'update_item'         => __( 'Update ', 'text_domain' ),
+		'search_items'        => __( 'Search ', 'text_domain' ),
+		'not_found'           => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+	);
+	$rewrite = array(
+		'slug'                => 'offers',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'offers', 'text_domain' ),
+		'description'         => __( 'Offers Posts', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 7,
+		'can_export'          => true,
+		'has_archive'         => false,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+		'rewrite'			  => $rewrite,
+	);
+	register_post_type( 'offers', $args );
+	
 }
 
 // Hook into the 'init' action
